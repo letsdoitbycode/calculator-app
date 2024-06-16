@@ -1,22 +1,29 @@
 function calculate() {
-    const num1 = document.getElementById('num1').value;
-    const num2 = document.getElementById('num2').value;
+    const num1 = parseFloat(document.getElementById('num1').value);
+    const num2 = parseFloat(document.getElementById('num2').value);
     const operation = document.getElementById('operation').value;
+    let result;
 
-    fetch('/calculate', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ num1, num2, operation })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.error) {
-            document.getElementById('result').innerText = data.error;
-        } else {
-            document.getElementById('result').innerText = `Result: ${data.result}`;
+    if (isNaN(num1) || isNaN(num2)) {
+        result = 'Please enter valid numbers';
+    } else {
+        switch (operation) {
+            case 'add':
+                result = num1 + num2;
+                break;
+            case 'subtract':
+                result = num1 - num2;
+                break;
+            case 'multiply':
+                result = num1 * num2;
+                break;
+            case 'divide':
+                result = num2 !== 0 ? num1 / num2 : 'Cannot divide by zero';
+                break;
+            default:
+                result = 'Unknown operation';
         }
-    })
-    .catch(error => console.error('Error:', error));
+    }
+
+    document.getElementById('result').textContent = result;
 }

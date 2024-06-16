@@ -1,10 +1,10 @@
 body {
     font-family: 'Arial', sans-serif;
-    display: flexbox;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-left: 100px;
+    margin: 0;
     background: linear-gradient(135deg, #f3f3f3, #c3c3c3);
 }
 
@@ -12,9 +12,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
-    padding: 20px;
 }
 
 .calculator {
@@ -34,14 +31,13 @@ body {
 }
 
 .number-input,
-.operation-select,
-.calculate-button {
+.operation-select
+{
     margin: 10px 0;
     padding: 15px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
-    width: calc(100% - 30px);
 }
 
 .number-input {
@@ -50,15 +46,22 @@ body {
 }
 
 .operation-select {
+    width: 200px;
     background-color: #444;
     color: #fff;
 }
 
 .calculate-button {
+    margin: 10px 30px;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.1s;
+    width: 120px;
 }
 
 .calculate-button:hover {
@@ -68,9 +71,10 @@ body {
 
 .result-display {
     margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 20px;
+    width: calc(100% - 30px);
     background-color: #222;
     padding: 15px;
     border-radius: 5px;
+    height: 20px;
 }
